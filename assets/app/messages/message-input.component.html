@@ -1,8 +1,15 @@
 <div class="col-md-8 col-md-offset-2">
-  <div class="form-group">
-    <label for="content">Content</label>
-    <input type="text" id="content" class="form-control" #input>
-  </div>
-  <button type="submit" class="btn btn-primary" name="button" (click)="onSave(input.value)">Save</button>
-
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="content">Content</label>
+      <input
+        type="text"
+        id="content"
+        class="form-control"
+        ngModel
+        name="content"
+        required>
+    </div>
+    <button type="submit" class="btn btn-primary" name="button">Save</button>
+  </form>
 </div>
