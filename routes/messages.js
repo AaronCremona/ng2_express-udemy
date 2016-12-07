@@ -11,12 +11,11 @@ router.get('/', function (req, res, next) {
           title: 'An error occurred',
           error: err
         });
-
-      res.status(200).json({
+      }
+      return res.status(200).json({
         message: 'Success',
         obj: messages
       });
-      }
     });
 });
 
