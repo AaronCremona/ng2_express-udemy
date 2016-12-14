@@ -13,6 +13,7 @@ import { HeaderComponent } from "./header.component";
 import { LogoutComponent } from "./auth/logout.component";
 import { SigninComponent } from "./auth/signin.component";
 import { SignupComponent } from "./auth/signup.component";
+import { AuthService } from "./auth/auth.service";
 
 import { routing } from "./app.routing";
 
@@ -36,6 +37,7 @@ import { routing } from "./app.routing";
       ReactiveFormsModule,
       HttpModule
     ],
+    providers: [AuthService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
