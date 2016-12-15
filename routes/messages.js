@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var jwt = require('jsonwebtoken')
 
 var Message = require('../models/message');
 
@@ -17,6 +18,18 @@ router.get('/', function (req, res, next) {
         obj: messages
       });
     });
+});
+
+router.use('/', function(req, res, next) {
+  jwt.verify(req.query.token, 'secret', function (err, decoded) {
+    if (err) {
+      return res.status(401).json({
+        title: 'Not authenticated',
+        error: err
+      });
+    }
+    next();
+  })
 });
 
 router.post('/', function (req, res, next) {
