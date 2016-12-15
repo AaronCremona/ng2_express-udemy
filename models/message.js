@@ -12,7 +12,7 @@ var schema = new Schema({
 
 schema.post('remove', function(message) {
   User.findById(message.user, function(err, user) {
-    user.messages.pull(mmessage);
+    user.messages.pull(message);
     user.save();
   });
 });
